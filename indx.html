@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精微五金 - 哈德威CNC微小精密五金零部件制造商</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #1a73e8;
+            --primary-light: #4d96f5;
+            --light-color: #f8f9fa;
+            --dark-color: #202124;
+            --accent-color: #e8eaed;
+            --text-color: #3c4043;
+            --border-color: #dadce0;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 20px auto 0;
+            color: #5f6368;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(26, 115, 232, 0.2);
+        }
+        
+        .btn:hover {
+            background-color: #0d62c9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* 导航栏样式 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Logo图片样式 */
+        .logo img {
+            height: 80px;
+            transition: height 0.3s ease; 
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 35px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* 首页Hero区域 */
+        .hero {
+            position: relative;
+            height: 90vh;
+            margin-top: 100px;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            background: linear-gradient(135deg, #1a73e8, #0d62c9);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.85) 30%, rgba(255, 255, 255, 0.6) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero h2 {
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            color: var(--dark-color);
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            text-align: center;
+            width: 100%;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            color: #5f6368;
+            max-width: 700px;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.2);
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 86, 179, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: snow;
+            color: var(--primary-color);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* 合作品牌 */
+        .brands {
+            background-color: var(--light-color);
+            padding: 70px 0 50px;
+        }
+        
+        .brands-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .brand-item {
+            text-align: center;
+            flex: 0 0 calc(16% - 40px);
+            min-width: 150px;
+            transition: var(--transition);
+        }
+        
+        .brand-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            transition: var(--transition);
+        }
+        
+        .brand-logo img {
+            max-height: 100%;
+            max-width: 100%;
+            filter: grayscale(0%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .brand-item:hover .brand-logo img {
+            filter: grayscale(0);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        .brand-item p {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        /* 公司简介 */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--dark-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .about-features {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            background: var(--light-color);
+            padding: 20px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        
+        .feature-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* 产品介绍 */
+        .products {
+            background-color: var(--light-color);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .product-img {
+            height: 240px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: #f5f7fa;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+            padding: 20px;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.08);
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .product-info p {
+            margin-bottom: 20px;
+            color: #5f6368;
+            line-height: 1.7;
+        }
+        
+        .product-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .spec-item {
+            background-color: var(--accent-color);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* 车间环境 */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            height: 280px;
+            transition: var(--transition);
+            background: #f5f7fa;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+            padding: 20px;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 25px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* 联系我们 */
+        .contact {
+            background-color: var(--light-color);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 60px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--dark-color);
+        }
+        
+        .contact-info p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        .contact-details {
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+        }
+        
+        .contact-text p {
+            margin-bottom: 0;
+            color: #5f6368;
+        }
+        
+        .contact-map {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(248, 249, 250, 1.0);
+            min-height: 300px;
+            margin-top: 20px;
+            background: #f5f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-map img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: linear-gradient(135deg, #1a2a4f, #202124);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-about {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            height: 80px;
+            margin-right: 12px;
+        }
+        
+        .footer-about h2 {
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        .footer-about p {
+            margin-top: 20px;
+            color: #e8eaed;
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #e8eaed;
+            text-decoration: none;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-right: 10px;
+            color: var(--primary-light);
+            width: 20px;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1100px) {
+            .brand-item {
+                flex: 0 0 calc(25% - 40px);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .contact-map {
+                height: 350px;
+            }
+            
+            .logo img {
+                height: 50px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .brand-item {
+                flex: 0 0 calc(33.33% - 40px);
+            }
+            
+            .logo img {
+                height: 45px;
+            }
+            
+            .feature-item {
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .brand-item {
+                flex: 0 0 calc(50% - 40px);
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+            
+            .hero {
+                height: 80vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="p/logo.png" alt="哈德威Logo">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#about">公司简介</a></li>
+                    <li><a href="#products">产品介绍</a></li>
+                    <li><a href="#workshop">设备介绍</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 首页Hero区域 -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>精密制造 · 零缺陷品质</h2>
+            <p>专业生产CNC车削微小精密五金零部件，提供高精度、高品质的定制化服务</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn">查看产品</a>
+                <a href="#contact" class="btn btn-outline">联系我们</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作品牌展示 -->
+    <section class="brands">
+        <div class="container">
+            <div class="section-title">
+                <h2>合作品牌</h2>
+                <p>我们为国内知名企业提供精密零部件制造服务</p>
+            </div>
+            <div class="brands-container">
+                <div class="brand-item">
+                    <div class="brand-logo">
+                        <img src="p/zh.jpg" alt="中航光电">
+                    </div>
+                    <p>中航光电</p>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-logo">
+                        <img src="p/gh.jpeg" alt="贵航电器">
+                    </div>
+                    <p>贵航电器</p>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-logo">
+                        <img src="p/xj.jpg" alt="许继集团">
+                    </div>
+                    <p>许继集团</p>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-logo">
+                        <img src="p/sy.jpg" alt="森源电气">
+                    </div>
+                    <p>森源电气</p>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-logo">
+                        <img src="p/lc.png" alt="浪潮集团">
+                    </div>
+                    <p>浪潮集团</p>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-logo">
+                        <img src="p/hn.jpg" alt="海纳电子">
+                    </div>
+                    <p>海纳电子</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司简介 -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>公司简介</h2>
+                <p>致力于提供高品质的精密零部件制造解决方案</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>哈德威 - 航天军工级精密五金制造专家</h3>
+                    <p>哈德威成立于2011年，13年来专注于CNC车削类微小精密五金零部件的研发与生产。公司有进口的生产设备和专业技术团队，为您保驾护航。</p>
+                    <p>我们致力于为客户提供高精度、高品质、零缺陷的定制化加工服务，产品广泛应用于航天军工、工业锁具、汽车配件、自动化工业等多个领域。</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <h4>微米级精度</h4>
+                                <p>加工精度可达±0.008mm</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div>
+                                <h4>先进设备</h4>
+                                <p>20+台进口CNC车床</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4>质量认证</h4>
+                                <p>GJB 9001C-2017</p>
+                                <p>武器装备质量认证体系</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe-asia"></i>
+                            </div>
+                            <div>
+                                <h4>多地厂区</h4>
+                                <p>3处厂区高效协同服务客户各类需求</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="p/bc.jpg" alt="哈德威锁业">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品介绍 -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>产品介绍</h2>
+                <p>我们以高标准 精细化 零缺陷的生产理念服务于客户</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img" id="gear-img">
+                        <img src="p/4098.png" alt="4098">
+                    </div>
+                    <div class="product-info">
+                        <h3>多芯线缆夹</h3>
+                        <p>适用于自动化机械线缆固定，尺寸13*13.5mm，表面粗糙度1.2。</p>
+                        <div class="product-specs">
+                            <span class="spec-item">材质: 6061</span>
+                            <span class="spec-item">精度: ±0.02mm</span>
+                            <span class="spec-item">表面处理: 电镀</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" id="connector-img">
+                        <img src="p/2053.png" alt="夹爪螺母">
+                    </div>
+                    <div class="product-info">
+                        <h3>夹爪螺母</h3>
+                        <p>适用于机械装配锁紧机构，符合RoHS标准。</p>
+                        <div class="product-specs">
+                            <span class="spec-item">材质: H62铜</span>
+                            <span class="spec-item">精度: ±0.01mm</span>
+                            <span class="spec-item">表面处理: 镀金</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" id="medical-img">
+                        <img src="p/hz.png" alt="医疗器械零件">
+                    </div>
+                    <div class="product-info">
+                        <h3>更多定制详情可联系咨询</h3>
+                        <p>专业定制各类轴类车削,车铣、异形件等精密五金产品</p>
+                        <div class="product-specs">
+                            <span class="spec-item">材质: 多种可选</span>
+                            <span class="spec-item">精度: ±0.005mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 车间环境 -->
+    <section id="workshop" class="workshop">
+        <div class="container">
+            <div class="section-title">
+                <h2>设备介绍</h2>
+                <p>现代化生产设备，严格把控产品质量与精度</p>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="p/cj.jpg" alt="车间">
+                    <div class="gallery-overlay">
+                        <h3>CNC生产现场</h3>
+                        <p>20＋台进口津上cnc车床</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="p/jc.jpg" alt="检测设备">
+                    <div class="gallery-overlay">
+                        <h3>专业视觉检测设备</h3>
+                        <p>高精度工业相机+全/半自动测量仪高效检测</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="p/jy.jpg" alt="检验">
+                    <div class="gallery-overlay">
+                        <h3>极限性能测试</h3>
+                        <p>出货前进行产品各项指标测试,保证产品质量</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+                <p>欢迎咨询我们的产品与服务</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>获取专业咨询</h3>
+                    <p>我们期待与您合作，为您提供高质量的精密零部件解决方案。请随时联系我们，我们的专业团队将为您提供详细的产品信息和技术支持。</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>公司地址</h4>
+                                <p>河南省许昌市经济开发区财源孵化基地F栋1楼</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>联系电话</h4>
+                                <p>159-9367-7933(黄经理)/131-3740-5939(曹经理)</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>电子邮箱</h4>
+                                <p>xchdwwj@163.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>工作时间</h4>
+                                <p>周一至周六: 8:00 - 19:30</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <img src="p/wxgz.png" alt="微信公众号">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="p/logobai.png" alt="哈德威Logo">
+                    </div>
+                    <p>专业CNC微小精密五金零部件制造商，致力于提供高精度、高品质的定制化加工服务。</p>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> 首页</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> 公司简介</a></li>
+                        <li><a href="#products"><i class="fas fa-chevron-right"></i> 产品介绍</a></li>
+                        <li><a href="#workshop"><i class="fas fa-chevron-right"></i> 设备介绍</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> 联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>产品类别</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 精密五金</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 工业锁具</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 工业拉链</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 非标定制</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 标件采购</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>联系我们</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 河南省许昌市经济开发区财源孵化基地F栋1楼</a></li>
+                        <li><a href="tel:15993677933"><i class="fas fa-phone-alt"></i> 159-9367-7933(黄经理)</a></li>
+                        <li><a href="mailto:xchdwwj@163.com"><i class="fas fa-envelope"></i> xchdwwj@163.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 许昌哈德威精密五金有限公司 版权所有 | 豫ICP备12345678号</p>
+                <p>&copy; 免责声明:素材来源网络公开渠道，如有侵权，请及时告知，联系删除！</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.08)';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 品牌Logo悬停效果增强
+        const brandItems = document.querySelectorAll('.brand-item');
+        brandItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'translateY(-10px)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
